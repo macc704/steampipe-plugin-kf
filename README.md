@@ -25,16 +25,22 @@ make
 
 Configure the plugin:
 
--- please check your target communityId from [CommunityId Finder](https://macc704.github.io/kf6apijs/community_finder/)
+- please check your target communityId from [CommunityId Finder](https://macc704.github.io/kf6apijs/community_finder/)
 
 ```sh
 cp config/* ~/.steampipe/config
 vi ~/.steampipe/config/kf.spc
 ```
 
+kf.spc file
 ```code
 connection "kf" {
   plugin = "kf"
+
+  username = "input your kf username"
+  password = "input your kf password"
+  url = "input your kf site like https://kf6-stage.ikit.org/"
+  communityId = "input your kf community Id"
 }
 ```
 
