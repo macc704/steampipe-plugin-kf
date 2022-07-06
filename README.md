@@ -52,18 +52,33 @@ steampipe query
 > .inspect kf_views
 > .inspect kf_links
 > .inspect kf_authors
+> .inspect kf_records
 ```
 
 Run a query:
 
 ```sql
-select kf_authors.last_name, count(*) from kf_notes inner join kf_authors on kf_notes.author = kf_authors.id group by kf_authors.last_name order by count(*) desc
+select kf_authors.last_name, count(*) 
+from kf_notes 
+inner join kf_authors on kf_notes.author = kf_authors.id 
+group by kf_authors.last_name 
+order by count(*) desc
 ```
 
 ```sql
-select kf_views.title, count(*) from kf_views inner join kf_links on kf_links.from = kf_views.id inner join kf_notes on kf_links.to = kf_notes.id group by kf_views.title order by count(*) desc
+select kf_views.title, count(*) 
+from kf_views 
+inner join kf_links on kf_links.from = kf_views.id 
+inner join kf_notes on kf_links.to = kf_notes.id 
+group by kf_views.title 
+order by count(*) desc
 ```
 
 ```sql
-select kf_authors.name, kf_views.title, kf_notes.title from kf_views inner join kf_links on kf_links.from = kf_views.id inner join kf_notes on kf_links.to = kf_notes.id inner join kf_authors on kf_notes.author = kf_authors.id where kf_views.title like '%xxx%'
+select kf_authors.name, kf_views.title, kf_notes.title 
+from kf_views 
+inner join kf_links on kf_links.from = kf_views.id 
+inner join kf_notes on kf_links.to = kf_notes.id 
+inner join kf_authors on kf_notes.author = kf_authors.id 
+where kf_views.title like '%xxx%'
 ```
