@@ -21,6 +21,7 @@ func Plugin(ctx context.Context) *plugin.Plugin {
 			"kf_authors": tableKFAuthors(ctx),
 			"kf_views":   tableKFViews(ctx),
 			"kf_links":   tableKFLinks(ctx),
+			"kf_records": tableKFRecords(ctx),
 		},
 	}
 	return p
