@@ -1,2 +1,2 @@
 install:
-	go build -o  ~/.steampipe/plugins/hub.steampipe.io/plugins/turbot/hypothesis@latest/steampipe-plugin-hypothesis.plugin *.go
+	go build -o  ~/.steampipe/plugins/hub.steampipe.io/plugins/turbot/kf@latest/steampipe-plugin-kf.plugin *.go

@@ -1,4 +1,4 @@
-package hypothesis
+package kf
 
 import (
 	"context"
@@ -9,15 +9,18 @@ import (
 
 func Plugin(ctx context.Context) *plugin.Plugin {
 	p := &plugin.Plugin{
-		Name: "steampipe-plugin-hypothesis",
+		Name: "steampipe-plugin-kf",
 		ConnectionConfigSchema: &plugin.ConnectionConfigSchema{
 			NewInstance: ConfigInstance,
 			Schema:      ConfigSchema,
 		},
-		DefaultTransform: transform.FromJSONTag().NullIfZero(),
+		// DefaultTransform: transform.FromJSONTag().NullIfZero(),
+		DefaultTransform: transform.FromGo().NullIfZero(),
 		TableMap: map[string]*plugin.Table{
-			"hypothesis_search": tableHypothesisSearch(ctx),
-			"hypothesis_profile": tableHypothesisProfile(ctx),
+			"kf_notes":   tableKFNotes(ctx),
+			"kf_authors": tableKFAuthors(ctx),
+			"kf_views":   tableKFViews(ctx),
+			"kf_links":   tableKFLinks(ctx),
 		},
 	}
 	return p

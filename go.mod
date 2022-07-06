@@ -1,4 +1,4 @@
-module github.com/turbot/steampipe-plugin-hypothesis
+module github.com/turbot/steampipe-plugin-kf
 
 go 1.18
 
